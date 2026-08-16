@@ -49,7 +49,7 @@ export const LandingPage = () => {
           {/* Pill Badge */}
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full theme-accent-bg border theme-accent-border theme-accent-text text-xs sm:text-sm font-bold tracking-wide shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full theme-accent-btn border text-xs sm:text-sm font-bold tracking-wide shadow-sm"
           >
             <Clock className="w-4 h-4 animate-pulse" />
             <span className="uppercase tracking-widest">Turn 15 minutes a day into lifelong knowledge</span>

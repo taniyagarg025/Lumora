@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+/* BASE LIGHT THEME OVERRIDES */
+.theme-light,
+.theme-light body {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+.theme-light header {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+.theme-light header nav {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+.theme-light header a,
+.theme-light header button,
+.theme-light header span {
+  color: #0F172A !important;
+}
+
+.theme-light .glass-card,
+.theme-light .soft-card,
+.theme-light .glass-panel {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+
+.theme-light .theme-hero-bg {
+  background-color: #0F172A !important;
+}
+
+.theme-light .theme-hero-text {
+  color: #FFFFFF !important;
+}
+
+/* 1. EMERALD MINT THEME (Green Accent System) */
+.theme-emerald .btn-brand-gradient,
+.theme-emerald .active-nav-pill,
+.theme-emerald .theme-accent-bg {
+  background: linear-gradient(135deg, #059669 0%, #10B981 50%, #0D9488 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 20px -3px rgba(16, 185, 129, 0.35) !important;
+}
+
+.theme-emerald .gradient-brand-text,
+.theme-emerald .theme-accent-text {
+  color: #059669 !important;
+}
+
+.theme-emerald .theme-accent-btn {
+  background-color: #ECFDF5 !important;
+  border-color: #6EE7B7 !important;
+  color: #065F46 !important;
+}
+
+.theme-emerald .theme-accent-border {
+  border-color: #6EE7B7 !important;
+}
+
+.theme-emerald .theme-glow-ring {
+  background: linear-gradient(135deg, #10B981 0%, #0D9488 100%) !important;
+}
+
+/* 2. ROYAL INDIGO THEME (Indigo Accent System) */
+.theme-indigo .btn-brand-gradient,
+.theme-indigo .active-nav-pill,
+.theme-indigo .theme-accent-bg {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #4338CA 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  box-shadow: 0 6px 20px -3px rgba(99, 102, 241, 0.35) !important;
+}
+
+.theme-indigo .gradient-brand-text,
+.theme-indigo .theme-accent-text {
+  color: #4F46E5 !important;
+}
+
+.theme-indigo .theme-accent-btn {
+  background-color: #EEF2FF !important;
+  border-color: #A5B4FC !important;
+  color: #3730A3 !important;
+}
+
+.theme-indigo .theme-accent-border {
+  border-color: #A5B4FC !important;
+}
+
+.theme-indigo .theme-glow-ring {
+  background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%) !important;
+}
+
+/* 3. REAL VINTAGE NEWSPAPER EDITORIAL THEME */
+.theme-newspaper,
+.theme-newspaper body {
+  background-color: #F7F3E9 !important;
+  background-image: linear-gradient(rgba(247, 243, 233, 0.88), rgba(247, 243, 233, 0.88)), url('/newspaper_bg.png') !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  color: #1C1917 !important;
+}
+
+.theme-newspaper header {
+  background-color: rgba(251, 249, 244, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-color: #E5DEC9 !important;
+}
+
+.theme-newspaper header nav {
+  background-color: #F3EEE3 !important;
+  border-color: #E5DEC9 !important;
+}
+
+.theme-newspaper header a,
+.theme-newspaper header button,
+.theme-newspaper header span {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper .glass-card,
+.theme-newspaper .soft-card,
+.theme-newspaper .glass-panel {
+  background-color: rgba(243, 238, 227, 0.92) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: #E5DEC9 !important;
+  box-shadow: 0 4px 20px -2px rgba(120, 53, 15, 0.12) !important;
+}
+
+.theme-newspaper .theme-hero-bg {
+  background-color: #29221D !important;
+}
+
+.theme-newspaper .theme-hero-text {
+  color: #F7F1E6 !important;
+}
+
+.theme-newspaper h1, 
+.theme-newspaper h2, 
+.theme-newspaper h3,
+.theme-newspaper h4,
+.theme-newspaper h5,
+.theme-newspaper h6,
+.theme-newspaper p,
+.theme-newspaper span,
+.theme-newspaper label {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper .btn-brand-gradient,
+.theme-newspaper .active-nav-pill,
+.theme-newspaper .theme-accent-bg {
+  background: #78350F !important;
+  color: #FFFBEB !important;
+  box-shadow: 0 4px 14px rgba(120, 53, 15, 0.3) !important;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper .gradient-brand-text,
+.theme-newspaper .theme-accent-text {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+  color: #78350F !important;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper .theme-accent-btn {
+  background-color: #FEF3C7 !important;
+  border-color: #F59E0B !important;
+  color: #78350F !important;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper .theme-accent-border {
+  border-color: #F59E0B !important;
+}
+
+.theme-newspaper .user-profile-badge {
+  background-color: #F3EEE3 !important;
+  border-color: #D97706 !important;
+  color: #1C1917 !important;
+}
+
+.theme-newspaper .user-profile-avatar {
+  background: #78350F !important;
+  color: #FFFBEB !important;
+}
+
+.theme-newspaper .theme-glow-ring {
+  background: linear-gradient(135deg, #D97706 0%, #78350F 100%) !important;
+}
+
+/* 4. HIGH CONTRAST DARK THEME (Cyber Teal System) */
+.theme-dark,
+.theme-dark body {
+  background-color: #090D16 !important;
+  color: #FFFFFF !important;
+}
+
+.theme-dark header {
+  background-color: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #FFFFFF !important;
+}
+
+.theme-dark header nav {
+  background-color: #1E293B !important;
+  border-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+
+.theme-dark header a,
+.theme-dark header button,
+.theme-dark header span {
+  color: #FFFFFF !important;
+}
+
+.theme-dark .glass-card,
+.theme-dark .soft-card,
+.theme-dark .glass-panel {
+  background-color: #111827 !important;
+  border-color: #1F2937 !important;
+  color: #FFFFFF !important;
+}
+
+.theme-dark .theme-hero-bg {
+  background-color: #0F172A !important;
+}
+
+.theme-dark .theme-hero-text {
+  color: #FFFFFF !important;
+}
+
+
+
+.theme-dark .btn-brand-gradient,
+.theme-dark .active-nav-pill,
+.theme-dark .theme-accent-bg {
+  background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.theme-dark .gradient-brand-text,
+.theme-dark .theme-accent-text {
+  color: #22D3EE !important;
+}
+
+.theme-dark .theme-accent-btn {
+  background-color: #164E63 !important;
+  border-color: #0891B2 !important;
+  color: #ECFEFF !important;
+}
+
+.theme-dark .theme-accent-border {
+  border-color: #0891B2 !important;
+}
+
+.theme-dark .theme-glow-ring {
+  background: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%) !important;
+}
+
+.glass-card {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+}
+
+.animate-fade-in {
+  animation: fadeInSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

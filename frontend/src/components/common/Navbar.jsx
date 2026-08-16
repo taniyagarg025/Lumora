@@ -139,52 +139,52 @@ export const Navbar = () => {
           {/* Right Side Actions */}
           <div className="flex items-center gap-2 shrink-0">
             
-            {/* Theme Selector */}
-            <div className="hidden md:flex items-center gap-0.5 p-0.5 rounded-full border">
-              <button
-                onClick={() => setTheme('newspaper')}
-                className={`p-1.5 rounded-full text-xs transition-all ${
-                  theme === 'newspaper' ? 'bg-amber-800 text-amber-50 font-black shadow-xs border border-amber-900' : 'opacity-60 hover:opacity-100'
-                }`}
-                title="Real Newspaper Editorial Mode"
-              >
-                <Newspaper className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                onClick={() => setTheme('emerald')}
-                className={`p-1.5 rounded-full text-xs transition-all ${
-                  theme === 'emerald' ? 'bg-emerald-600 text-white font-black shadow-xs' : 'opacity-60 hover:opacity-100'
-                }`}
-                title="Emerald Mint Theme"
-              >
-                <Sun className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                onClick={() => setTheme('indigo')}
-                className={`p-1.5 rounded-full text-xs transition-all ${
-                  theme === 'indigo' ? 'bg-indigo-600 text-white font-black shadow-xs' : 'opacity-60 hover:opacity-100'
-                }`}
-                title="Royal Indigo Theme"
-              >
-                <Palette className="w-3.5 h-3.5" />
-              </button>
-
-              <button
-                onClick={() => setTheme('dark')}
-                className={`p-1.5 rounded-full text-xs transition-all ${
-                  theme === 'dark' ? 'bg-slate-800 text-purple-300 font-black shadow-xs' : 'opacity-60 hover:opacity-100'
-                }`}
-                title="Midnight Dark Mode"
-              >
-                <Moon className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
             {isAuthenticated ? (
               <div className="flex items-center gap-2 sm:gap-2.5">
                 
+                {/* Theme Selector */}
+                <div className="hidden md:flex items-center gap-0.5 p-0.5 rounded-full border">
+                  <button
+                    onClick={() => setTheme('newspaper')}
+                    className={`p-1.5 rounded-full text-xs transition-all ${
+                      theme === 'newspaper' ? 'bg-amber-800 text-amber-50 font-black shadow-xs border border-amber-900' : 'opacity-60 hover:opacity-100'
+                    }`}
+                    title="Real Newspaper Editorial Mode"
+                  >
+                    <Newspaper className="w-3.5 h-3.5" />
+                  </button>
+
+                  <button
+                    onClick={() => setTheme('emerald')}
+                    className={`p-1.5 rounded-full text-xs transition-all ${
+                      theme === 'emerald' ? 'bg-emerald-600 text-white font-black shadow-xs' : 'opacity-60 hover:opacity-100'
+                    }`}
+                    title="Emerald Mint Theme"
+                  >
+                    <Sun className="w-3.5 h-3.5" />
+                  </button>
+
+                  <button
+                    onClick={() => setTheme('indigo')}
+                    className={`p-1.5 rounded-full text-xs transition-all ${
+                      theme === 'indigo' ? 'bg-indigo-600 text-white font-black shadow-xs' : 'opacity-60 hover:opacity-100'
+                    }`}
+                    title="Royal Indigo Theme"
+                  >
+                    <Palette className="w-3.5 h-3.5" />
+                  </button>
+
+                  <button
+                    onClick={() => setTheme('dark')}
+                    className={`p-1.5 rounded-full text-xs transition-all ${
+                      theme === 'dark' ? 'bg-slate-800 text-purple-300 font-black shadow-xs' : 'opacity-60 hover:opacity-100'
+                    }`}
+                    title="Midnight Dark Mode"
+                  >
+                    <Moon className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
                 {/* Daily Streak Indicator */}
                 <div 
                   className="flex items-center gap-1.5 px-3 py-1 rounded-full theme-accent-btn border text-xs font-black shadow-xs"
@@ -215,7 +215,7 @@ export const Navbar = () => {
                 {/* Logout Button */}
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-full theme-accent-btn theme-accent-text hover:opacity-80 border theme-accent-border text-xs font-black transition-all shrink-0 shadow-xs"
+                  className="hidden md:flex items-center gap-1 px-3 py-1.5 rounded-full theme-accent-btn theme-accent-text hover:opacity-80 border theme-accent-border text-xs font-black transition-all shrink-0 shadow-xs"
                   title="Sign Out"
                 >
                   <LogOut className="w-3.5 h-3.5" />

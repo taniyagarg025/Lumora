@@ -58,7 +58,7 @@ export const LandingPage = () => {
           {/* Headline */}
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl sm:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.05] font-serif"
+            className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05] font-serif"
           >
             A smarter way to <br className="hidden sm:block" />
             <span className="theme-accent-text italic font-serif relative inline-block">
@@ -75,7 +75,7 @@ export const LandingPage = () => {
           {/* Subtitle */}
           <motion.p 
             variants={itemVariants}
-            className="text-lg sm:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed font-medium"
+            className="text-lg sm:text-xl opacity-80 max-w-2xl leading-relaxed font-medium"
           >
             Lumora is your personal daily knowledge companion. We distill global news, teach you essential life skills, and train your brain—all in just 15 minutes a day.
           </motion.p>
@@ -99,7 +99,7 @@ export const LandingPage = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-10 py-4 rounded-full bg-transparent border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 text-base font-bold shadow-sm transition-colors text-center"
+                className="w-full sm:w-auto px-10 py-4 rounded-full bg-transparent border border-current opacity-90 hover:opacity-100 hover:bg-black/5 dark:hover:bg-white/5 text-base font-bold shadow-sm transition-colors text-center"
               >
                 Sign In
               </motion.button>
@@ -109,7 +109,7 @@ export const LandingPage = () => {
           {/* Social Proof */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 pt-8 text-sm font-semibold text-slate-500 dark:text-slate-400"
+            className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 pt-8 text-sm font-semibold opacity-80"
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 theme-accent-text" />
@@ -132,8 +132,8 @@ export const LandingPage = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16 space-y-4"
         >
-          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 dark:text-white font-serif">The Daily Knowledge Journey</h2>
-          <p className="text-slate-500 dark:text-slate-400 text-lg font-medium max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-black font-serif">The Daily Knowledge Journey</h2>
+          <p className="opacity-80 text-lg font-medium max-w-2xl mx-auto">
             We've engineered the perfect morning routine. Stop doomscrolling and start building real intelligence.
           </p>
         </motion.div>
@@ -158,8 +158,8 @@ export const LandingPage = () => {
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 theme-accent-bg opacity-80">
                 <card.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 font-serif">{card.step}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">
+              <h3 className="text-2xl font-bold mb-3 font-serif">{card.step}</h3>
+              <p className="opacity-80 text-sm leading-relaxed font-medium">
                 {card.desc}
               </p>
             </motion.div>
@@ -190,7 +190,7 @@ export const LandingPage = () => {
           <h2 className="text-4xl sm:text-6xl font-black text-white mb-6 font-serif relative z-10 leading-tight">
             Ready to become the smartest person in the room?
           </h2>
-          <p className="text-slate-300 text-lg sm:text-xl mb-12 max-w-xl mx-auto font-medium relative z-10">
+          <p className="text-white opacity-80 text-lg sm:text-xl mb-12 max-w-xl mx-auto font-medium relative z-10">
             Join thousands of professionals who start their morning with Lumora.
           </p>
           

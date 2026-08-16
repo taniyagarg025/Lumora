@@ -35,14 +35,7 @@ export function App() {
               {/* Daily Spark Honeybee Feature */}
               <DailySparkBee />
 
-              <footer className="py-6 border-t border-slate-200/80 dark:border-slate-800/80 text-center text-xs text-slate-500">
-                <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="font-medium">© {new Date().getFullYear()} ReadWise AI. All rights reserved.</p>
-                  <p className="flex items-center gap-1 font-medium">
-                    Built with Spring Boot 3, React, Tailwind CSS & Google Gemini AI
-                  </p>
-                </div>
-              </footer>
+
             </div>
           </ThemeProvider>
         </AuthProvider>

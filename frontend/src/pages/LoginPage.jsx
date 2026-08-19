@@ -35,7 +35,7 @@ export const LoginPage = () => {
         
         <div className="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto mb-4 border border-indigo-500/30">
+            <div className="w-12 h-12 rounded-2xl theme-accent-bg theme-accent-text flex items-center justify-center mx-auto mb-4 border theme-accent-border">
               <BookOpen className="w-6 h-6" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Welcome Back</h2>
@@ -87,7 +87,7 @@ export const LoginPage = () => {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-3.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-semibold text-white shadow-lg shadow-indigo-600/30 flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+              className="w-full py-3.5 px-4 rounded-xl btn-brand-gradient font-semibold text-white shadow-lg flex items-center justify-center gap-2 transition-all disabled:opacity-50 hover:opacity-90"
             >
               {submitting ? (
                 <>
@@ -105,7 +105,7 @@ export const LoginPage = () => {
 
           <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800/80 text-center text-sm text-slate-500 dark:text-slate-400">
             Don't have an account?{' '}
-            <Link to="/register" className="text-indigo-600 dark:text-indigo-400 font-semibold hover:text-indigo-500 dark:hover:text-indigo-300">
+            <Link to="/register" className="theme-accent-text font-bold hover:opacity-80">
               Create Account
             </Link>
           </div>

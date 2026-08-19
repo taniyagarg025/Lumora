@@ -54,29 +54,32 @@ export const Navbar = () => {
       <header className="fixed top-0 left-0 right-0 z-50 py-2.5 px-3 sm:px-6 border-b shadow-sm transition-colors duration-200">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0 group">
-            <div className="w-8 h-8 rounded-xl btn-brand-gradient flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
-              <BookOpen className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-black text-lg tracking-tight font-poppins flex items-center gap-1">
-              Lumora <span className="gradient-brand-text font-black">AI</span>
-            </span>
-          </Link>
+          {/* Left Section: Hamburger + Brand Logo */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Mobile Hamburger Button */}
+            {isAuthenticated && (
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+              >
+                {isMobileMenuOpen ? (
+                  <X className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                ) : (
+                  <Menu className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                )}
+              </button>
+            )}
 
-          {/* Mobile Hamburger Button */}
-          {isAuthenticated && (
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 rounded-full hover:bg-slate-100 transition-colors"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5 text-slate-700" />
-              ) : (
-                <Menu className="w-5 h-5 text-slate-700" />
-              )}
-            </button>
-          )}
+            {/* Brand Logo */}
+            <Link to="/" className="flex items-center gap-2 shrink-0 group">
+              <div className="w-8 h-8 rounded-xl btn-brand-gradient flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+                <BookOpen className="w-4 h-4 text-white" />
+              </div>
+              <span className="font-black text-lg tracking-tight font-poppins flex items-center gap-1">
+                Lumora <span className="gradient-brand-text font-black">AI</span>
+              </span>
+            </Link>
+          </div>
 
           {/* Navigation Links for Authenticated Users */}
           {isAuthenticated && (

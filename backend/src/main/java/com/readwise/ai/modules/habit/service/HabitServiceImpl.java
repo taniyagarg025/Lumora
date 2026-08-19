@@ -37,13 +37,30 @@ public class HabitServiceImpl implements HabitService {
     private final UserQuizAttemptRepository quizAttemptRepository;
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public ReadingStreakDto getStreakInfo(String userEmail) {
         User user = getUser(userEmail);
         UserStreak streak = streakRepository.findByUserId(user.getId())
-                .orElse(UserStreak.builder().user(user).currentStreak(0).longestStreak(0).build());
+                .orElseGet(() -> UserStreak.builder().user(user).currentStreak(0).longestStreak(0).build());
 
         LocalDate today = LocalDate.now();
+        LocalDate lastRead = streak.getLastReadDate();
+
+        // Update streak logic for daily sign-in/check-in
+        if (lastRead == null) {
+            streak.setCurrentStreak(1);
+            streak.setLastReadDate(today);
+        } else if (lastRead.equals(today.minusDays(1))) {
+            streak.setCurrentStreak(streak.getCurrentStreak() + 1);
+            streak.setLastReadDate(today);
+        } else if (lastRead.isBefore(today.minusDays(1))) {
+            streak.setCurrentStreak(1);
+            streak.setLastReadDate(today);
+        }
+        
+        streak.setLongestStreak(Math.max(streak.getLongestStreak(), streak.getCurrentStreak()));
+        streakRepository.save(streak);
+
         boolean isActive = streak.getLastReadDate() != null && 
                 (!streak.getLastReadDate().isBefore(today.minusDays(1)));
 
@@ -74,24 +91,6 @@ public class HabitServiceImpl implements HabitService {
                     .build();
             logRepository.save(logEntry);
         }
-
-        // Update streak
-        UserStreak streak = streakRepository.findByUserId(user.getId())
-                .orElseGet(() -> UserStreak.builder().user(user).currentStreak(0).longestStreak(0).build());
-
-        LocalDate lastRead = streak.getLastReadDate();
-        if (lastRead == null) {
-            streak.setCurrentStreak(1);
-        } else if (lastRead.equals(today.minusDays(1))) {
-            streak.setCurrentStreak(streak.getCurrentStreak() + 1);
-        } else if (lastRead.isBefore(today.minusDays(1))) {
-            streak.setCurrentStreak(1);
-        }
-
-        streak.setLongestStreak(Math.max(streak.getLongestStreak(), streak.getCurrentStreak()));
-        streak.setLastReadDate(today);
-
-        streakRepository.save(streak);
     }
 
     @Override

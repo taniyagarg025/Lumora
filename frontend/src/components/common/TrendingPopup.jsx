@@ -10,7 +10,7 @@ export const TrendingPopup = () => {
   const { data: trendingArticles } = useQuery({
     queryKey: ['trendingHeadlines'],
     queryFn: async () => {
-      const res = await newsService.getNewsFeed('world', '', 0, 10);
+      const res = await newsService.getNewsFeed('all', '', 0, 10);
       return res.data?.content || [];
     },
   });

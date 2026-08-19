@@ -92,41 +92,43 @@ public class MultiSourceNewsAggregator implements NewsProviderStrategy {
     @Override
     public List<Article> fetchTopHeadlines(String category) {
         String cat = (category != null && !category.isBlank()) ? category.toLowerCase() : "all";
-        List<Article> allArticles = new ArrayList<>();
 
         List<String[]> feedsToTry = ("all".equalsIgnoreCase(cat) || "general".equalsIgnoreCase(cat))
             ? ALL_FEEDS
             : CATEGORY_FEEDS.getOrDefault(cat, ALL_FEEDS);
 
-        int successCount = 0;
-        for (String[] feed : feedsToTry) {
-            String sourceName = feed[0];
-            String feedUrl   = feed[1];
-            String feedCat   = "all".equalsIgnoreCase(cat) ? feed[2] : cat;
-            try {
-                List<Article> articles = parseFeed(feedUrl, sourceName, feedCat);
-                if (!articles.isEmpty()) {
-                    log.info("✅ [{}] {} articles ← {}", sourceName, articles.size(), feedUrl);
-                    allArticles.addAll(articles);
-                    successCount++;
-                } else {
-                    log.warn("⚠️ [{}] returned 0 articles from {}", sourceName, feedUrl);
-                }
-            } catch (Exception e) {
-                log.warn("❌ [{}] feed failed — {}: {}", sourceName, feedUrl, e.getMessage());
-            }
-        }
+        log.info("🚀 Fetching {} sources in parallel for category '{}'...", feedsToTry.size(), cat);
 
-        log.info("📰 Total: {} articles from {}/{} sources for category '{}'",
-                 allArticles.size(), successCount, feedsToTry.size(), cat);
+        List<Article> allArticles = feedsToTry.parallelStream()
+            .map(feed -> {
+                String sourceName = feed[0];
+                String feedUrl   = feed[1];
+                String feedCat   = "all".equalsIgnoreCase(cat) ? feed[2] : cat;
+                try {
+                    List<Article> articles = parseFeed(feedUrl, sourceName, feedCat);
+                    if (!articles.isEmpty()) {
+                        log.info("✅ [{}] {} articles ← {}", sourceName, articles.size(), feedUrl);
+                        return articles;
+                    } else {
+                        log.warn("⚠️ [{}] returned 0 articles from {}", sourceName, feedUrl);
+                        return new ArrayList<Article>();
+                    }
+                } catch (Exception e) {
+                    log.warn("❌ [{}] feed failed — {}: {}", sourceName, feedUrl, e.getMessage());
+                    return new ArrayList<Article>();
+                }
+            })
+            .flatMap(List::stream)
+            .toList();
+
+        log.info("📰 Total: {} articles from {} sources for category '{}'",
+                 allArticles.size(), feedsToTry.size(), cat);
 
         if (allArticles.isEmpty()) {
             log.warn("All RSS feeds failed for '{}'. Using curated fallback.", cat);
             return generateCuratedNews(cat);
         }
 
-        // Return ALL fetched articles — the service handles deduplication by URL.
-        // Do NOT cap here; capping before saving causes some sources to get 0 articles.
         return allArticles;
     }
 

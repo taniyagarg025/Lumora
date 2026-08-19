@@ -167,6 +167,35 @@
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
 }
 
+.theme-newspaper input,
+.theme-newspaper textarea {
+  background-color: #FDFBF7 !important;
+  border-color: #E5DEC9 !important;
+  color: #29221D !important;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+.theme-newspaper input::placeholder,
+.theme-newspaper textarea::placeholder {
+  color: #A89B85 !important;
+}
+
+.theme-newspaper input:focus,
+.theme-newspaper textarea:focus {
+  border-color: #78350F !important;
+  box-shadow: 0 0 0 1px #78350F !important;
+}
+
+.theme-newspaper .glass-panel p,
+.theme-newspaper .glass-panel label,
+.theme-newspaper .glass-panel svg {
+  color: #574B3E !important;
+}
+
+.theme-newspaper .glass-panel h2 {
+  color: #29221D !important;
+}
+
 .theme-newspaper .btn-brand-gradient,
 .theme-newspaper .active-nav-pill,
 .theme-newspaper .theme-accent-bg {

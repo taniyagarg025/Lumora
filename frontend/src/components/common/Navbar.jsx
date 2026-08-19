@@ -72,10 +72,10 @@ export const Navbar = () => {
 
             {/* Brand Logo */}
             <Link to="/" className="flex items-center gap-2 shrink-0 group">
-              <div className="w-8 h-8 rounded-xl btn-brand-gradient flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+              <div className="w-8 h-8 rounded-xl btn-brand-gradient flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 shrink-0">
                 <BookOpen className="w-4 h-4 text-white" />
               </div>
-              <span className="font-black text-lg tracking-tight font-poppins flex items-center gap-1">
+              <span className="font-black text-lg tracking-tight font-poppins flex items-center gap-1 whitespace-nowrap">
                 Lumora <span className="gradient-brand-text font-black">AI</span>
               </span>
             </Link>
@@ -190,11 +190,11 @@ export const Navbar = () => {
 
                 {/* Daily Streak Indicator */}
                 <div 
-                  className="flex items-center gap-1.5 px-3 py-1 rounded-full theme-accent-btn border text-xs font-black shadow-xs"
+                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full theme-accent-btn border text-xs font-black shadow-xs shrink-0 whitespace-nowrap"
                   title="Active Learning Streak"
                 >
-                  <Flame className="w-4 h-4 theme-accent-text animate-bounce" />
-                  <span className="text-xs font-black tracking-tight"><strong className="text-sm font-black mr-0.5">{currentStreak}</strong> Day Streak</span>
+                  <Flame className="w-4 h-4 theme-accent-text animate-bounce shrink-0" />
+                  <span className="text-xs font-black tracking-tight"><strong className="text-sm font-black mr-0.5">{currentStreak}</strong> <span className="hidden sm:inline">Day Streak</span></span>
                 </div>
 
                 {/* Clickable Profile Avatar & Badge */}
